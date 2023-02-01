@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+@model IEnumerable<SistemaWebEmpleado.Models.Empleado>
+
+    @Html.ActionLink("Nuevo","Create","Empleado")
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model=>model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model=>model.Titulo)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Titulo)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink(item.Titulo, "PorTitulo", "Empleado",new{titulo=item.Titulo})
+
+                </td>
+            </tr>
+
+        }
+
+    </table>
